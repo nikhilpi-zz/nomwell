@@ -2,7 +2,7 @@
 ### EECS 330 - Human Computer Interaction
 Nevil George, Nikhil Pai, Brad Puder, Craig Olsen
 
-# Frameworks used:
+### Frameworks used:
 * Node
 * Angular
 * Yeoman
