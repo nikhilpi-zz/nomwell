@@ -1,5 +1,6 @@
 # NomWell - Eat better
 ### EECS 330 - Human Computer Interaction
+Nevil George, Nikhil Pai, Brad Puder, Craig Olsen
 
 ## Setup
 1. Clone repo
@@ -12,6 +13,7 @@
 2. `git add -A`
 3. `git commit -m "some message"`
 4. `git push heroku master`
+5. `heroku open`
 
 ## Dev cycle
 1. Create branch with feature name
