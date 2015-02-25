@@ -2,6 +2,13 @@
 ### EECS 330 - Human Computer Interaction
 Nevil George, Nikhil Pai, Brad Puder, Craig Olsen
 
+# Frameworks used:
+* Node
+* Angular
+* Yeoman
+* Less
+* mobile angular ui
+
 ## Setup
 1. Clone repo
 2. Have heroku toolbelt, npm, node installed
