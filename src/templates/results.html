@@ -1,0 +1,15 @@
+<section class="section container-fluid">
+  <a href="" ui-turn-on="filter" class="btn btn-default">Filter</a>
+  <div class="scrollable-content">
+    <div class="list-group text-center">
+      <div ng-repeat="food in foods" class="list-group-item list-group-item-home">
+        <h1>{{food.name}}</h1>
+        <p>{{food.description}}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div ui-content-for="modals">
+  <div ng-include="'filter.html'"></div>
+</div>

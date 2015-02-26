@@ -5,5 +5,13 @@ angular.module('NomWell', [
 ])
 
 .config(function($routeProvider) {
-  $routeProvider.when('/', {templateUrl:'home.html',  reloadOnSearch: false});
+  $routeProvider
+    .when('/', {
+      templateUrl:'home.html',  
+      reloadOnSearch: false}
+    )
+    .when('/results', {
+      templateUrl:'results.html',  
+      reloadOnSearch: false}
+    );
 });

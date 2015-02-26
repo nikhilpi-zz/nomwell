@@ -4,9 +4,16 @@ angular.module('NomWell.controllers.Main', [])
   $scope.user = {
 
   };
-  $scope.food = [{
-  
-    }];
+  $scope.foods = [
+    {
+      name: 'Quinoa',
+      description: 'Healthy Food'
+    },
+    {
+      name: 'Kale',
+      description: 'Kale me'
+    }
+  ];
 
 
 });
