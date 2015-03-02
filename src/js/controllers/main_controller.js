@@ -1,6 +1,6 @@
 angular.module('NomWell.controllers.Main', [])
 
-.controller('MainController', function($scope){
+.controller('MainController', function($scope, $window){
   $scope.user = {
 
   };
@@ -14,6 +14,13 @@ angular.module('NomWell.controllers.Main', [])
       description: 'Kale me'
     }
   ];
+
+  $scope.history = [];
+
+  $scope.goBack = function(){    
+    console.log('back');   
+    $window.history.back();
+  };
 
 
 });
