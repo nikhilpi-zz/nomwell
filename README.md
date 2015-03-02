@@ -1,6 +1,6 @@
 # NomWell - Eat better
 ### EECS 330 - Human Computer Interaction
-Nevil George, Nikhil Pai, Brad Puder, Craig Olsen
+Nevil George, Nikhil Pai, Brad Puder, Craig Olson
 
 ### Frameworks used:
 * Node
