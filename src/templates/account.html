@@ -6,38 +6,26 @@
        
         <div class="input-group">
           <input type="text" class="form-control" placeholder="Cardholder Name" aria-describedby="basic-addon1">
-          <input type="text" class="form-control" placeholder="Billing Zip Code" aria-describedby="basic-addon1">
+          <input type="text" class="form-control account" placeholder="Billing Zip Code" aria-describedby="basic-addon1">
         </div>
 
-        <h4>Card Details</h4>
-        <!-- <div class="btn-group btn-group-justified" role="group" aria-label="...">
-          <div class="btn-group" role="group">
-            <button type="button" class="btn btn-default credit-card">Visa</button>
-          </div>
-          <div class="btn-group" role="group">
-            <button type="button" class="btn btn-default credit-card">Mastercard</button>
-          </div>
-          <div class="btn-group" role="group">
-            <button type="button" class="btn btn-default credit-card">Discover</button>
-          </div>
-          <div class="btn-group" role="group">
-            <button type="button" class="btn btn-default credit-card">AmEx</button>
-          </div> -->
+        <h4 class="account">Card Details</h4>
 
           <div class="btn-group btn-group-sm" role="group">
             <button ng-class="{'active':selected === 'visa'}" ng-click="selected = 'visa'" type="button" class="btn btn-default credit-card">Visa</button>
             <button ng-class="{'active':selected === 'mastercard'}" ng-click="selected = 'mastercard'" type="button" class="btn btn-default credit-card">Mastercard</button>
             <button ng-class="{'active':selected === 'discover'}" ng-click="selected = 'discover'" type="button" class="btn btn-default credit-card">Discover</button>
+            <button ng-class="{'active':selected === 'amex'}" ng-click="selected = 'amex'" type="button" class="btn btn-default credit-card">AmEx</button>
           </div>
 
         <div class="input-group">
-          <input type="text" class="form-control" placeholder="Credit Card Number" aria-describedby="basic-addon1">
-          <input type="text" class="form-control" placeholder="CVV Code" aria-describedby="basic-addon1">
-          <input type="text" class="form-control" placeholder="Expiration Month" aria-describedby="basic-addon1">
-          <input type="text" class="form-control" placeholder="Expiration Year" aria-describedby="basic-addon1">
+          <input type="text" class="form-control account" placeholder="Credit Card Number" aria-describedby="basic-addon1">
+          <input type="text" class="form-control account" placeholder="CVV Code" aria-describedby="basic-addon1">
+          <input type="text" class="form-control account" placeholder="Expiration Month" aria-describedby="basic-addon1">
+          <input type="text" class="form-control account" placeholder="Expiration Year" aria-describedby="basic-addon1">
         </div>
 
-        <button type="button" class="btn btn-success">Submit!</button>
+        <button type="button" class="btn btn-success account">Save!</button>
 
       </div>
     </div>
