@@ -10,10 +10,10 @@
             <p>{{food.name}}</p>
           </div>
           <div class="col-xs-4">
-            <p>{{food.vendor}}</p>
+            <p style="text-align:center">{{food.vendor}}</p>
           </div>
           <div class="col-xs-4">
-            <p>{{food.price}}</p>
+            <p style="text-align:right">${{food.price}}</p>
           </div>
         </div>
         <div class="food-modal" ng-show="selectedFood===food">
