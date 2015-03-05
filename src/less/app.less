@@ -3,24 +3,24 @@
 @import "variables.less";
 
 .cover-container {
-    height: 100%;
-    width: 100%;
-    white-space: nowrap;
-    overflow-x: scroll;
-    overflow-y: hidden;
+  height: 100%;
+  width: 100%;
+  white-space: nowrap;
+  overflow-x: scroll;
+  overflow-y: hidden;
 }
 .cover-item {
-    position: relative;
-    display: inline-block;
-    margin: 8px 8px;
-    box-shadow: 2px 2px 4px #bbb;
-    border-top-right-radius: 4px;
-    width: 15em;
-    height: 12em;
-    vertical-align: bottom;
-    background-position: top left;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
+  position: relative;
+  display: inline-block;
+  margin: 8px 8px;
+  box-shadow: 2px 2px 4px #bbb;
+  border-top-right-radius: 4px;
+  width: 15em;
+  height: 12em;
+  vertical-align: bottom;
+  background-position: top left;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 
 .cover-item p {
@@ -44,4 +44,70 @@
 .checkbox {
     padding-top: 10px;
     padding-bottom: 10px;
+  position: absolute;
+  bottom: 0em;
+  left: .5em;
+  color: white;
+  font-size: 1.5em;
+}
+
+.results{
+  padding: 0;
+  .list-group{
+    margin-bottom: 0;
+  }
+
+  .action-btns{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    margin: 0;
+    z-index: 1000;
+  }
+
+  .results-item{
+    padding: 0;
+
+    .food-info{
+      margin:0;
+      position: absolute;
+      z-index: 1;
+      width: 100%;
+      bottom: 0;
+      background: rgba(255,255,255,.8);;
+    }
+
+    .food-modal{
+      background: rgba(0,0,0,.7);
+      position: absolute;
+      z-index: 100;
+      width: 95%;
+      margin: 2.5%;
+      color: #fff;
+      top: 0;
+      padding: 2%;
+      border-radius: 5px;
+      height: 70%;
+      h5{
+        text-decoration: underline;
+        margin-bottom: 2px;
+      }
+      p{
+        margin-bottom: 0;
+      }
+    }
+
+    .food-img-wrapper{
+      height: 12em;
+      overflow: hidden;
+      width: 100%;
+      .food-img{
+        width: 100%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        vertical-align: middle;
+      } 
+    }  
+  }
 }

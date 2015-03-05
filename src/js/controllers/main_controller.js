@@ -4,23 +4,74 @@ angular.module('NomWell.controllers.Main', [])
   $scope.user = {
 
   };
+
   $scope.foods = [
     {
-      name: 'Quinoa',
-      description: 'Healthy Food'
+      name: 'Quinoa Salad',
+      description: 'Healthy Food',
+      price: '$10',
+      vendor: 'Life Kitchen',
+      eta: '30',
+      img: 'http://www.kraftrecipes.com/assets/recipe_images/Mediterranean-Quinoa-salad-57818.jpg',
+      favorite: false,
+      ingredients: ['quinoa', 'lemon', 'mint', 'squash'],
+      fat: 3,
+      calories: 300,
+      salt: 3
     },
     {
-      name: 'Kale',
-      description: 'Kale me'
+      name: 'Quinoa Salad',
+      description: 'Healthy Food',
+      price: '$10',
+      vendor: 'Life Kitchen',
+      eta: '30',
+      img: 'http://www.kraftrecipes.com/assets/recipe_images/Mediterranean-Quinoa-salad-57818.jpg',
+      favorite: false,
+      ingredients: ['quinoa', 'lemon', 'mint', 'squash'],
+      fat: 3,
+      calories: 300,
+      salt: 3
+    },
+    {
+      name: 'Quinoa Salad',
+      description: 'Healthy Food',
+      price: '$10',
+      vendor: 'Life Kitchen',
+      eta: '30',
+      img: 'http://www.kraftrecipes.com/assets/recipe_images/Mediterranean-Quinoa-salad-57818.jpg',
+      favorite: false,
+      ingredients: ['quinoa', 'lemon', 'mint', 'squash'],
+      fat: 3,
+      calories: 300,
+      salt: 3
+    },
+    {
+      name: 'Quinoa Salad',
+      description: 'Healthy Food',
+      price: '$10',
+      vendor: 'Life Kitchen',
+      eta: '30',
+      img: 'http://www.kraftrecipes.com/assets/recipe_images/Mediterranean-Quinoa-salad-57818.jpg',
+      favorite: false,
+      ingredients: ['quinoa', 'lemon', 'mint', 'squash'],
+      fat: 3,
+      calories: 300,
+      salt: 3
+    },
+    {
+      name: 'Quinoa Salad',
+      description: 'Healthy Food',
+      price: '$10',
+      vendor: 'Life Kitchen',
+      eta: '30',
+      img: 'http://www.kraftrecipes.com/assets/recipe_images/Mediterranean-Quinoa-salad-57818.jpg',
+      favorite: false,
+      ingredients: ['quinoa', 'lemon', 'mint', 'squash'],
+      fat: 3,
+      calories: 300,
+      salt: 3
     }
   ];
-
-  $scope.history = [];
-
-  $scope.goBack = function(){    
-    console.log('back');   
-    $window.history.back();
-  };
 
   $scope.styles = [
     {
@@ -75,7 +126,19 @@ angular.module('NomWell.controllers.Main', [])
         $scope.styles[0].select = '0.3em solid white';
       }
     }
-  }
+  };
+
+  $scope.selectedFood = null;
+
+  $scope.select = function(food){
+    if ($scope.selectedFood !== food){
+      $scope.selectedFood = food;
+    } else {
+      $scope.selectedFood = null;
+    }
+  };
+
+  
 
 
 });
