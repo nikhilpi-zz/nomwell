@@ -1,28 +1,30 @@
 <div ui-content-for="title">
-  <span>Order</span>
+  <span>Confirmation</span>
 </div>
 
 <section class="section container-fluid">
   <div class="row">
-    <div class="col-xs-6">
-      <div class="well">
-        <p><strong>Address:</strong></p>
-        <p>1580 Sherman Ave<br/>Evanston, IL 60201</p>
-      </div>
-    </div>
-    <div class="col-xs-6">
-      <div class="well">
-        <p><strong>Payment Method:</strong></p>
-        <p>Visa<br/>xxxx-xxxx-xxxx-2933</p>
-      </div>
+    <div class="col-xs-12" style="text-align:center">
+      Your order has been placed and is on its way!
     </div>
   </div>
+  <br/>
   <div class="row">
-    <button class="col-xs-12 btn btn-primary">Add Side</button>
+    <div class="col-xs-2"></div>
+    <div class="col-xs-8">
+      <div class="well" style="text-align:center;font-weight:bold">
+        Your food arrives in:
+        <div id="time-left">{{ selectedFood.eta}}:00</div>
+      </div>
+    </div>
   </div>
+
   <div class="row">
-    <a href="" ng-click="clear()" ui-turn-on="instructions"><button class="col-xs-12 btn btn-primary">Add Special Instructions</button></a>
+    <div class="col-xs-12">
+      <h4 style="text-align:center">Order Info:</h2>
+    </div>
   </div>
+
   <div class="row">
     <div class="col-xs-12">
       <table class="table">
@@ -47,11 +49,8 @@
       </table>
     </div>
   </div>
-  <div class="row">
-    <a href="/#/confirmation"><button class="col-xs-12 btn btn-primary">Confirm Order</button></a>
-  </div>
 </section>
 
-<div ui-content-for="modals">
-  <div ng-include="'instructions.html'"></div>
-</div>
+<script>
+  console.log('heelo')
+</script>

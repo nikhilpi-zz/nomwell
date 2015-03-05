@@ -18,6 +18,10 @@ angular.module('NomWell', [
       templateUrl:'order.html',
       reloadOnSearch: false
     })
+    .when('/confirmation', {
+      templateUrl: 'confirmation.html',
+      reloadOnSearch: false
+    })
     .when('/account', {
       templateUrl: 'account.html',
       reloadOnSearch: false

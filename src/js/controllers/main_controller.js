@@ -18,7 +18,7 @@ angular.module('NomWell.controllers.Main', [])
       description: 'Healthy Food',
       price: 10,
       vendor: 'Lyfe Kitchen',
-      eta: '30',
+      eta: 30,
       img: 'http://www.kraftrecipes.com/assets/recipe_images/Mediterranean-Quinoa-salad-57818.jpg',
       favorite: false,
       ingredients: ['quinoa', 'lemon', 'mint', 'squash'],
@@ -34,7 +34,7 @@ angular.module('NomWell.controllers.Main', [])
       description: 'Healthy Food',
       price: 12,
       vendor: 'Bravo',
-      eta: '35',
+      eta: 35,
       img: 'http://www.ilovepasta.org/sites/default/files/feature-bg-imgs/pasta-slide-001_0.jpg',
       favorite: false,
       ingredients: ['tomato', 'basil', 'farfalle', 'spinach'],
@@ -50,7 +50,7 @@ angular.module('NomWell.controllers.Main', [])
       description: 'Healthy Food',
       price: 13,
       vendor: 'Lyfe Kitchen',
-      eta: '30',
+      eta: 30,
       img: 'http://www.muscleprodigy.com/content/articles/home/feb-12-2011-meal-plan-of-the-day-1344.jpg',
       favorite: false,
       ingredients: ['tilapia', 'green beans', 'tomato', 'onions'],
@@ -66,7 +66,7 @@ angular.module('NomWell.controllers.Main', [])
       description: 'Healthy Food',
       price: 8,
       vendor: 'Thai Sookdee',
-      eta: '25',
+      eta: 25,
       img: 'http://assets.cakebatterandbowl.com/wp-content/uploads/2013/03/wraps2.jpg',
       favorite: false,
       ingredients: ['lettuce', 'edamame', 'carrots', 'celery'],
@@ -144,7 +144,18 @@ angular.module('NomWell.controllers.Main', [])
     }
   };
 
-  
+  $scope.timeSpent = 0;
 
+  function startTimer(){
+    setInterval( function(){ 
+      $scope.timeSpent++ ;
+      var secondsLeft = ($scope.selectedFood.eta * 60) - $scope.timeSpent;
+      var minutes = Math.floor(secondsLeft / 60);
+      document.querySelector("#time-left").innerText = minutes + ":" + (secondsLeft - (minutes * 60)) ;
+    }, 1000);
+    
+  };
+
+  startTimer();
 
 });
