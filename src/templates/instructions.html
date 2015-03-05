@@ -1,0 +1,27 @@
+<div class="modal modal-overlay" ui-if='instructions' ui-state='instructions'>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button class="close"
+                ui-turn-off="instructions">&times;</button>
+        <h4 class="modal-title">Special Instructions</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="form-group">
+                <textarea name="specialInstructions" class="form-control" placeholder="Call on arrival."></textarea>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button ui-turn-off="instructions" class="btn btn-default">Cancel</button>
+        <button ui-turn-off="instructions" class="btn btn-primary">Add Instructions</button>
+      </div>
+    </div>
+  </div>
+</div>
+

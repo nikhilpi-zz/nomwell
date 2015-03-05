@@ -1,0 +1,57 @@
+<div ui-content-for="title">
+  <span>Order</span>
+</div>
+
+<section class="section container-fluid">
+  <div class="row">
+    <div class="col-xs-6">
+      <div class="well">
+        <p><strong>Address:</strong></p>
+        <p>1580 Sherman Ave<br/>Evanston, IL 60201</p>
+      </div>
+    </div>
+    <div class="col-xs-6">
+      <div class="well">
+        <p><strong>Payment Method:</strong></p>
+        <p>Visa<br/>xxxx-xxxx-xxxx-2933</p>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <button class="col-xs-12 btn btn-primary">Add Side</button>
+  </div>
+  <div class="row">
+    <a href="" ui-turn-on="instructions"><button class="col-xs-12 btn btn-primary">Add Special Instructions</button></a>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <table class="table">
+        <tbody>
+          <tr>
+            <td>Quinoa</td>
+            <td>$10.00</td>
+          </tr>
+          <tr>
+            <td>Diet Coke</td>
+            <td>$3.00</td>
+          </tr>
+          <tr>
+            <td>Tax (10%)</td>
+            <td>$1.30</td>
+          </tr>
+          <tr class="active">
+            <td><strong>TOTAL</strong></td>
+            <td><strong>$14.30</strong></td>
+          </tr>          
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <button class="col-xs-12 btn btn-primary">Confirm Order</button>
+  </div>
+</section>
+
+<div ui-content-for="modals">
+  <div ng-include="'instructions.html'"></div>
+</div>
