@@ -1,6 +1,6 @@
 angular.module('NomWell.controllers.Main', [])
 
-.controller('MainController', function($scope, $window){
+.controller('MainController', function($scope, $window, $location){
   $scope.selected = 'visa';
 
   $scope.user = {
@@ -26,8 +26,8 @@ angular.module('NomWell.controllers.Main', [])
       calories: 300,
       salt: 3,
       vegetarian: false,
-      thai: false,
-      italian: false
+      glutenFree: true,
+      style: 'Japanese'
     },
     {
       name: 'Caprese Pasta',
@@ -42,8 +42,8 @@ angular.module('NomWell.controllers.Main', [])
       calories: 500,
       salt: 2,
       vegetarian: true,
-      thai: false,
-      italian: true
+      glutenFree: false,
+      style: 'Italian'
     },
     {
       name: 'Grilled Tilapia',
@@ -58,8 +58,8 @@ angular.module('NomWell.controllers.Main', [])
       calories: 300,
       salt: 3,
       vegetarian: false,
-      thai: false,
-      italian: true
+      glutenFree: true,
+      style: 'Italian'
     },
     {
       name: 'Lettuce Wraps',
@@ -74,8 +74,8 @@ angular.module('NomWell.controllers.Main', [])
       calories: 400,
       salt: 3,
       vegetarian: true,
-      thai: true,
-      italian: false
+      glutenFree: true,
+      style: 'Thai'
     }
   ];
 
@@ -83,54 +83,88 @@ angular.module('NomWell.controllers.Main', [])
     {
       name: 'All',
       url: 'img/all.jpg',
-      select: '0.3em solid white'
+      selected: false
     },
     {
       name: 'Thai',
       url: 'img/thai.jpg',
-      select: '0.3em solid white'
+      selected: false
     },
     {
       name: 'Indian',
       url: 'img/indian.jpg',
-      select: '0.3em solid white'
+      selected: false
     },
     {
-      name: 'Mediterranean',
+      name: 'Italian',
       url: 'img/mediterranean.jpg',
-      select: '0.3em solid white'
+      selected: false
     },
     {
       name: 'Japanese',
       url: 'img/japanese.jpg',
-      select: '0.3em solid white'
+      selected: false
     },
     {
       name: 'Korean',
       url: 'img/korean.jpg',
-      select: '0.3em solid white'
+      selected: false
     }
   ];
 
-  $scope.calories = 500;
+  $scope.filter ={
+    vegetarian: false,
+    glutenFree: false,
+    calories: 500
+  };
 
-  $scope.toggle = function(index) {
-    if (index == 0) {
-      var border = $scope.styles[0].select;
-      for (var i=0; i < $scope.styles.length; i++) {
-        if (border == '0.3em solid white') {
-          $scope.styles[i].select = '0.3em solid #FF5050';
-        } else {
-          $scope.styles[i].select = '0.3em solid white';
-        }
+  function filterhome(food, i){
+    console.log($scope.filter);
+    var styles = [];
+    for(var i = 0; i < $scope.styles.length; i++){
+      if($scope.styles[i].selected){
+        styles.push($scope.styles[i].name);
+      }
+    }
+    console.log(styles);
+    if(styles.indexOf(food.style) !== -1 && food.calories <= parseInt($scope.filter.calories)){
+      return true;      
+    } else {
+      return false;
+    }
+  };
+
+  function filterFavorite(food, i){
+    return food.favorite;
+  };
+
+  $scope.resultFilter = filterhome;
+
+  $scope.changeResults = function(page){
+    switch(page) {
+      case 'fav':
+        $scope.resultFilter = filterFavorite;
+        break;
+      default:
+        $scope.resultFilter = filterhome;
+        break;
+    }
+    $location.path('/results');
+  };
+
+
+
+  $scope.toggle = function(style) {
+    if(style.name == 'All' && !style.selected){
+      for(var i = 0; i < $scope.styles.length; i++){
+        $scope.styles[i].selected = true;
+      }
+    } else if  (style.name == 'All' && style.selected){
+      for(var i = 0; i < $scope.styles.length; i++){
+        $scope.styles[i].selected = false;
       }
     } else {
-      if ($scope.styles[index].select == '0.3em solid white') {
-        $scope.styles[index].select = '0.3em solid #FF5050';
-      } else {
-        $scope.styles[index].select = '0.3em solid white';
-        $scope.styles[0].select = '0.3em solid white';
-      }
+      style.selected = !style.selected;
     }
   };
 
@@ -145,17 +179,27 @@ angular.module('NomWell.controllers.Main', [])
   };
 
   $scope.timeSpent = 0;
+  $scope.timer = null;
 
   function startTimer(){
-    setInterval( function(){ 
+    $scope.timer = setInterval( function(){ 
       $scope.timeSpent++ ;
       var secondsLeft = ($scope.selectedFood.eta * 60) - $scope.timeSpent;
       var minutes = Math.floor(secondsLeft / 60);
       document.querySelector("#time-left").innerText = minutes + ":" + (secondsLeft - (minutes * 60)) ;
-    }, 1000);
-    
+    }, 1000); 
   };
 
-  startTimer();
+  clearInterval($scope.timer); 
+  console.log($location.path());
+  $scope.$on('$routeChangeStart', function(next, current) {
+    if($location.path() == '/confirmation'){
+      startTimer();
+    } else {
+      clearInterval($scope.timer);
+    }
+  });
+  
+  
 
 });

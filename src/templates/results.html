@@ -1,7 +1,7 @@
 <section class="results section container-fluid scrollable">
   <div class="scrollable-content">
     <div class="list-group">
-      <div ng-repeat="food in foods" class="list-group-item results-item" ng-click="select(food)">
+      <div ng-repeat="food in foods | filter:resultFilter" class="list-group-item results-item" ng-click="select(food)">
         <div class="food-img-wrapper">
           <img class="food-img" src="{{food.img}}">
         </div>

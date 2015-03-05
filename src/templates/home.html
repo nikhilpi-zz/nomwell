@@ -1,33 +1,30 @@
-<section class="section container-fluid">
+<section class="section container-fluid full-height">
   <div class="row-fluid">
   	<h3>Cuisine</h3>
     <div class="col-lg-12 col-md-10 ">
         <div class="cover-container">
-        	<div class="cover-item" ng-repeat="style in styles" style="background-image: url('{{style.url}}'); border: {{style.select}}" ng-click="toggle($index)"><p>{{style.name}}</p></div>	
+        	<div class="cover-item" ng-repeat="style in styles" style="background-image: url('{{style.url}}')" ng-class="{'selected' : style.selected}" ng-click="toggle(style)"><p>{{style.name}}</p></div>	
     	</div>	
 	</div> 
 
 	<br>
-	<h3>Calories &le; {{calories}}</h3>
-	<input type="range" min="0" max="1000" ng-bind="calories" ng-model="calories" id="fader">
+	<h3>Calories &le; {{filter.calories}}</h3>
+	<input type="range" min="0" max="1000" ng-model="filter.calories">
 
-  <!-- <input type="checkbox" ng-model="vegetarian"> Vegetarian </input>
-  <input type="checkbox" ng-model="gluten_free"> Gluten-free </input>
- -->
- <div class="checkbox">
+<!--  <div class="checkbox">
     <label>
-      <input type="checkbox"> Vegetarian
+      <input type="checkbox" ng-model="filter.vegetarian"> Vegetarian
     </label>
   </div>
 
   <div class="checkbox">
     <label>
-      <input type="checkbox"> Gluten-free
+      <input type="checkbox" ng-model="filter.glutenFree"> Gluten-free
     </label>
-  </div>
+  </div> -->
 
   <div class="row">
-    <a href="/#/results"> <button class="col-xs-12 btn btn-primary">Find food!</button></a>
+    <a ng-click="changeResults('all')"> <button class="col-xs-12 btn btn-primary">Find food!</button></a>
   </div>
 
 </section>
