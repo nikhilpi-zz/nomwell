@@ -24,9 +24,9 @@ angular.module('NomWell.controllers.Main', [])
 
   // $scope.instructions = 'Click to add.';
 
-  $scope.save = function() {
-    console.log($scope.instructions);
-  }
+  // $scope.save = function() {
+  //   console.log($scope.instructions);
+  // }
 
   $scope.styles = [
     {

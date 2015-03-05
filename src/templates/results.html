@@ -1,12 +1,44 @@
-<section class="section container-fluid">
-  <a href="" ui-turn-on="filter" class="btn btn-default">Filter</a>
+<section class="results section container-fluid scrollable">
   <div class="scrollable-content">
-    <div class="list-group text-center">
-      <div ng-repeat="food in foods" class="list-group-item list-group-item-home">
-        <h1>{{food.name}}</h1>
-        <p>{{food.description}}</p>
+    <div class="list-group">
+      <div ng-repeat="food in foods" class="list-group-item results-item" ng-click="select(food)">
+        <div class="food-img-wrapper">
+          <img class="food-img" src="{{food.img}}">
+        </div>
+        <div class="row food-info">
+          <div class="col-xs-4">
+            <p>{{food.name}}</p>
+          </div>
+          <div class="col-xs-4">
+            <p>{{food.vendor}}</p>
+          </div>
+          <div class="col-xs-4">
+            <p>{{food.price}}</p>
+          </div>
+        </div>
+        <div class="food-modal" ng-show="selectedFood===food">
+          <div class="row text-center">
+            <h5>{{food.name}}</h5>
+          </div>
+          <div class="row">
+            <div class="col-xs-6">
+              <h5>Nutrition:</h5>
+              <p>Fat: {{food.fat}}g</p>
+              <p>Calories: {{food.calories}}</p>
+              <p>Salt: {{food.salt}}g</p>
+            </div>
+            <div class="col-xs-6">
+              <h5>Ingredients:</h5>
+              <p><span ng-repeat="ingredient in food.ingredients"> {{ingredient}},</span></p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+  </div>
+  <div class="action-btns row" ng-show="selectedFood">
+    <a class="btn btn-primary btn-lg col-xs-6" ng-click="selectedFood.favorite = !selectedFood.favorite">Favorite</a>
+    <a class="btn btn-default btn-lg col-xs-6" href="/#/order">Order</a>
   </div>
 </section>
 
