@@ -22,6 +22,12 @@ angular.module('NomWell.controllers.Main', [])
     $window.history.back();
   };
 
+  // $scope.instructions = 'Click to add.';
+
+  $scope.save = function() {
+    console.log($scope.instructions);
+  }
+
   $scope.styles = [
     {
       name: 'All',
