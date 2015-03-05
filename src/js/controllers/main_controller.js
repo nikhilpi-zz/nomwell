@@ -1,8 +1,15 @@
 angular.module('NomWell.controllers.Main', [])
 
 .controller('MainController', function($scope, $window){
-  $scope.user = {
+  $scope.selected = 'visa';
 
+  $scope.user = {
+    name: 'Michael Horn',
+    zipCode: '60201',
+    cardNumber: '**** **** **** 1234',
+    cvvCode: '***',
+    expMonth: 'June',
+    expYear: '2017'
   };
 
   $scope.foods = [

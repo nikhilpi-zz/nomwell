@@ -11,7 +11,23 @@
 	<h3>Calories &le; {{calories}}</h3>
 	<input type="range" min="0" max="1000" ng-bind="calories" ng-model="calories" id="fader">
 
-  <input class="checkbox" type="checkbox" ng-model="vegetarian"> Vegetarian </input>
-  <input class="checkbox" type="checkbox" ng-model="gluten_free"> Gluten-free </input>
+  <!-- <input type="checkbox" ng-model="vegetarian"> Vegetarian </input>
+  <input type="checkbox" ng-model="gluten_free"> Gluten-free </input>
+ -->
+ <div class="checkbox">
+    <label>
+      <input type="checkbox"> Vegetarian
+    </label>
+  </div>
+
+  <div class="checkbox">
+    <label>
+      <input type="checkbox"> Gluten-free
+    </label>
+  </div>
+
+  <div class="row">
+    <a href="/#/results"> <button class="col-xs-12 btn btn-primary">Find food!</button></a>
+  </div>
 
 </section>
