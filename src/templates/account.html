@@ -5,8 +5,8 @@
       <div class="jumbotron">
        
         <div class="input-group">
-          <input type="text" class="form-control" placeholder="Cardholder Name" aria-describedby="basic-addon1">
-          <input type="text" class="form-control account" placeholder="Billing Zip Code" aria-describedby="basic-addon1">
+          <input type="text" class="form-control" placeholder="Cardholder Name" aria-describedby="basic-addon1" value="{{user.name}}">
+          <input type="text" class="form-control account" placeholder="Billing Zip Code" aria-describedby="basic-addon1" value="{{user.zipCode}}">
         </div>
 
         <h4 class="account">Card Details</h4>
@@ -19,13 +19,15 @@
           </div>
 
         <div class="input-group">
-          <input type="text" class="form-control account" placeholder="Credit Card Number" aria-describedby="basic-addon1">
-          <input type="text" class="form-control account" placeholder="CVV Code" aria-describedby="basic-addon1">
-          <input type="text" class="form-control account" placeholder="Expiration Month" aria-describedby="basic-addon1">
-          <input type="text" class="form-control account" placeholder="Expiration Year" aria-describedby="basic-addon1">
+          <input type="text" class="form-control account" placeholder="Credit Card Number" aria-describedby="basic-addon1" value="{{user.cardNumber}}">
+          <input type="text" class="form-control account" placeholder="CVV Code" aria-describedby="basic-addon1" value="{{user.cvvCode}}">
+          <input type="text" class="form-control account" placeholder="Expiration Month" aria-describedby="basic-addon1" value="{{user.expMonth}}">
+          <input type="text" class="form-control account" placeholder="Expiration Year" aria-describedby="basic-addon1" value="{{user.expYear}}">
         </div>
 
-        <button type="button" class="btn btn-success account">Save!</button>
+        <div class="row">
+          <button class="col-xs-12 btn btn-primary">Save!</button>
+        </div>
 
       </div>
     </div>
