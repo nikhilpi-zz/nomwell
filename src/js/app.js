@@ -17,5 +17,9 @@ angular.module('NomWell', [
     .when('/order', {
       templateUrl:'order.html',
       reloadOnSearch: false
+    })
+    .when('/account', {
+      templateUrl: 'account.html',
+      reloadOnSearch: false
     });
 });

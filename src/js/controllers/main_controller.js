@@ -44,11 +44,6 @@ angular.module('NomWell.controllers.Main', [])
       select: '0.3em solid white'
     },
     {
-      name: 'Vegetarian',
-      url: 'img/vegetarian.jpg',
-      select: '0.3em solid white'
-    },
-    {
       name: 'Japanese',
       url: 'img/japanese.jpg',
       select: '0.3em solid white'
