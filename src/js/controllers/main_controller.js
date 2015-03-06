@@ -27,7 +27,25 @@ angular.module('NomWell.controllers.Main', [])
       salt: 3,
       vegetarian: false,
       glutenFree: true,
-      style: 'Japanese'
+      style: 'Japanese',
+      orderedBefore: false
+    },
+    {
+      name: 'Masala Curry',
+      description: 'Healthy Food',
+      price: 10,
+      vendor: 'Mt Everest',
+      eta: 30,
+      img: 'https://c1.staticflickr.com/5/4146/5062959704_acb92d4a28.jpg',
+      favorite: false,
+      ingredients: ['chicken', 'curry', 'rice', 'salt'],
+      fat: 8,
+      calories: 700,
+      salt: 4,
+      vegetarian: false,
+      glutenFree: true,
+      style: 'Indian',
+      orderedBefore: false
     },
     {
       name: 'Caprese Pasta',
@@ -43,7 +61,8 @@ angular.module('NomWell.controllers.Main', [])
       salt: 2,
       vegetarian: true,
       glutenFree: false,
-      style: 'Italian'
+      style: 'Italian',
+      orderedBefore: false
     },
     {
       name: 'Grilled Tilapia',
@@ -59,7 +78,8 @@ angular.module('NomWell.controllers.Main', [])
       salt: 3,
       vegetarian: false,
       glutenFree: true,
-      style: 'Italian'
+      style: 'Italian',
+      orderedBefore: false
     },
     {
       name: 'Lettuce Wraps',
@@ -75,7 +95,8 @@ angular.module('NomWell.controllers.Main', [])
       salt: 3,
       vegetarian: true,
       glutenFree: true,
-      style: 'Thai'
+      style: 'Thai',
+      orderedBefore: false
     }
   ];
 
@@ -83,34 +104,53 @@ angular.module('NomWell.controllers.Main', [])
     {
       name: 'All',
       url: 'img/all.jpg',
-      selected: false
+      selected: true
     },
     {
       name: 'Thai',
       url: 'img/thai.jpg',
-      selected: false
+      selected: true
     },
     {
       name: 'Indian',
       url: 'img/indian.jpg',
-      selected: false
+      selected: true
     },
     {
       name: 'Italian',
       url: 'img/mediterranean.jpg',
-      selected: false
+      selected: true
     },
     {
       name: 'Japanese',
       url: 'img/japanese.jpg',
-      selected: false
+      selected: true
     },
     {
       name: 'Korean',
       url: 'img/korean.jpg',
-      selected: false
+      selected: true
     }
   ];
+
+
+  $scope.resultFilter = filterhome;
+
+  $scope.changeResults = function(page){
+    switch(page) {
+      case 'fav':
+        $scope.resultFilter = filterFavorite;
+        break;
+      case 'past':
+        $scope.resultFilter = filterPast;
+        break;
+      default:
+        $scope.resultFilter = filterhome;
+        break;
+    }
+    $scope.selectedFood = null;
+    $location.path('/results');
+  };
 
   $scope.filter ={
     vegetarian: false,
@@ -138,22 +178,11 @@ angular.module('NomWell.controllers.Main', [])
     return food.favorite;
   };
 
-  $scope.resultFilter = filterhome;
-
-  $scope.changeResults = function(page){
-    switch(page) {
-      case 'fav':
-        $scope.resultFilter = filterFavorite;
-        break;
-      default:
-        $scope.resultFilter = filterhome;
-        break;
-    }
-    $location.path('/results');
+  function filterPast(food, i){
+    return food.orderedBefore;
   };
 
-
-
+  
   $scope.toggle = function(style) {
     if(style.name == 'All' && !style.selected){
       for(var i = 0; i < $scope.styles.length; i++){
@@ -195,6 +224,7 @@ angular.module('NomWell.controllers.Main', [])
   $scope.$on('$routeChangeStart', function(next, current) {
     if($location.path() == '/confirmation'){
       startTimer();
+      $scope.selectedFood.orderedBefore = true;
     } else {
       clearInterval($scope.timer);
     }
