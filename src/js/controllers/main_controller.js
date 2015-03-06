@@ -28,7 +28,8 @@ angular.module('NomWell.controllers.Main', [])
       vegetarian: false,
       glutenFree: true,
       style: 'Japanese',
-      orderedBefore: false
+      orderedBefore: false,
+      side: false
     },
     {
       name: 'Masala Curry',
@@ -45,7 +46,8 @@ angular.module('NomWell.controllers.Main', [])
       vegetarian: false,
       glutenFree: true,
       style: 'Indian',
-      orderedBefore: false
+      orderedBefore: false,
+      side: false
     },
     {
       name: 'Caprese Pasta',
@@ -62,7 +64,8 @@ angular.module('NomWell.controllers.Main', [])
       vegetarian: true,
       glutenFree: false,
       style: 'Italian',
-      orderedBefore: false
+      orderedBefore: false,
+      side: false
     },
     {
       name: 'Grilled Tilapia',
@@ -79,7 +82,8 @@ angular.module('NomWell.controllers.Main', [])
       vegetarian: false,
       glutenFree: true,
       style: 'Italian',
-      orderedBefore: false
+      orderedBefore: false,
+      side: false
     },
     {
       name: 'Lettuce Wraps',
@@ -96,7 +100,26 @@ angular.module('NomWell.controllers.Main', [])
       vegetarian: true,
       glutenFree: true,
       style: 'Thai',
-      orderedBefore: false
+      orderedBefore: false,
+      side: false
+    },
+    {
+      name: 'Coke',
+      description: 'Drink',
+      price: 8,
+      vendor: '',
+      eta: 25,
+      img: 'http://www.coke.co.za/resources/images/product_selection/product_coke_bottle.png',
+      favorite: false,
+      ingredients: ['water', 'sugar', 'falvor'],
+      fat: 3,
+      calories: 400,
+      salt: 3,
+      vegetarian: true,
+      glutenFree: true,
+      style: 'American',
+      orderedBefore: false,
+      side: true
     }
   ];
 
@@ -144,6 +167,9 @@ angular.module('NomWell.controllers.Main', [])
       case 'past':
         $scope.resultFilter = filterPast;
         break;
+      case 'side':
+        $scope.resultFilter = filterSide;
+        break;
       default:
         $scope.resultFilter = filterhome;
         break;
@@ -159,14 +185,15 @@ angular.module('NomWell.controllers.Main', [])
   };
 
   function filterhome(food, i){
-    console.log($scope.filter);
+    if(food.side){
+      return false;
+    }
     var styles = [];
     for(var i = 0; i < $scope.styles.length; i++){
       if($scope.styles[i].selected){
         styles.push($scope.styles[i].name);
       }
     }
-    console.log(styles);
     if(styles.indexOf(food.style) !== -1 && food.calories <= parseInt($scope.filter.calories)){
       return true;      
     } else {
@@ -180,6 +207,10 @@ angular.module('NomWell.controllers.Main', [])
 
   function filterPast(food, i){
     return food.orderedBefore;
+  };
+
+  function filterSide(food, i){
+    return food.side;
   };
 
   
